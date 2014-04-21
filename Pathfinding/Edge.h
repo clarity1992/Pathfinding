@@ -7,6 +7,8 @@ public:
 	Edge(Vertex& linkedVertex, int weight);
 	~Edge();
 
+	Vertex* getLinkedVertex();
+
 private:
 	//The vertex that is connected to the host vertex via this edge.
 	Vertex* linkedVertex;

@@ -15,3 +15,8 @@ Edge::~Edge(void)
 {
 
 }
+
+Vertex* Edge::getLinkedVertex()
+{
+	return linkedVertex;
+}

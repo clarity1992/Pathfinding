@@ -1,9 +1,10 @@
 #include "Vertex.h"
 
+using std::string;
 
-Vertex::Vertex()
+Vertex::Vertex(string vertexID): vertexID(vertexID)
 {
-
+	visited = false;
 }
 
 Vertex::~Vertex()

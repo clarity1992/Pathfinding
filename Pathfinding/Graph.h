@@ -12,9 +12,11 @@ public:
 	void addEdge(Vertex& vertexA, Vertex& vertexB, int weight);
 
 	//Is there a uninterupted connetion between the two given vertexs.
-	//bool isReachable(Vertex& vertexA, Vertex& vertexB);
+	bool isReachable(Vertex* startingVertex, Vertex* endingVertex);
 
 private:
 	std::vector<Vertex*> nodes;
+
+	bool isReachableRec(Vertex* startingVertex, Vertex* endingVertex);
 };
 
