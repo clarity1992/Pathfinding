@@ -40,20 +40,25 @@ bool Graph::isReachable(Vertex* startingVertex, Vertex* endingVertex)
 	*/
 
 	unsigned i = 0;
-	for (vertP = this->nodes.at(0); i < this->nodes.size(); ++i)
+	for (vertP = this->nodes.at(0); i < this->nodes.size(); )
 	{
-		vertP->visited = 0;
+		vertP->visited = false;
 		if (vertP == startingVertex)
 		{
 			startP = vertP;
 		}			
-		vertP = nodes.at(i);
+		++i;
+
+		if (i < this->nodes.size())
+		{
+			vertP = nodes.at(i);
+		}
 	}
 
 	/* Make sure the starting point exists. */
 
 	if (startP == NULL)
-	return 0;
+	return false;
 	 
 	/* Now see if we can get there from here. */
 
@@ -62,7 +67,7 @@ bool Graph::isReachable(Vertex* startingVertex, Vertex* endingVertex)
 
 bool Graph::isReachableRec(Vertex* startingVertex, Vertex* endingVertex)
 {
-	cout << "Is: " << startingVertex->vertexID << " connected to : " << endingVertex->vertexID << endl;
+	
 	Edge *edgeP;
 
 	/* Have we been here already? */
@@ -92,13 +97,20 @@ bool Graph::isReachableRec(Vertex* startingVertex, Vertex* endingVertex)
 	if (startingVertex->edges.size() == 0)
 		return false;
 
-	for (edgeP = &startingVertex->edges.at(0); i < startingVertex->edges.size(); ++i)
+	for (edgeP = &startingVertex->edges.at(0); i < startingVertex->edges.size(); )
 	{
 		if (isReachableRec(edgeP->getLinkedVertex(), endingVertex))
 		{
+			cout << startingVertex->vertexID << " is on the path to : " << endingVertex->vertexID << endl;
 			return true;
 		}
-		edgeP = &startingVertex->edges.at(i);
+
+		++i;
+
+		if (i < startingVertex->edges.size())
+		{
+			edgeP = &startingVertex->edges.at(i);
+		}			
 	}
 
 	/*
