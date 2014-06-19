@@ -16,7 +16,13 @@ Edge::~Edge(void)
 
 }
 
-Vertex* Edge::getLinkedVertex()
+Vertex* Edge::getLinkedVertex() const
 {
 	return linkedVertex;
 }
+
+int Edge::getWeight() const
+{
+	return this->weight;
+}
+

@@ -28,8 +28,9 @@ void Graph::addEdge(Vertex& vertexA, Vertex& vertexB, int weight)
 	vertexA.addEdge(Edge(vertexB, weight));
 }
 
-bool Graph::isReachable(Vertex* startingVertex, Vertex* endingVertex)
+int Graph::isReachable(Vertex* startingVertex, Vertex* endingVertex)
 {
+	cout << "Finding path from vertex: " << startingVertex->vertexID << " to: " << endingVertex->vertexID << endl; 
 	Vertex* vertP;
 	Vertex* startP = NULL;
 
@@ -60,16 +61,21 @@ bool Graph::isReachable(Vertex* startingVertex, Vertex* endingVertex)
 	if (startP == NULL)
 	return false;
 	 
-	/* Now see if we can get there from here. */
+	
 
-	return isReachableRec(startP, endingVertex);
+	int cost = 0;
+
+	/* Now see if we can get there from here. */
+	isReachableRec(startP, endingVertex, cost);
+	cout << "Path Cost: " << cost << endl;
+	return cost;
 }
 
-bool Graph::isReachableRec(Vertex* startingVertex, Vertex* endingVertex)
+bool Graph::isReachableRec(Vertex* startingVertex, Vertex* endingVertex, int& cost)
 {
 	
 	Edge *edgeP;
-
+	
 	/* Have we been here already? */
 
 	if (startingVertex->visited)
@@ -86,22 +92,25 @@ bool Graph::isReachableRec(Vertex* startingVertex, Vertex* endingVertex)
 	/* Don't come here again. */
 	startingVertex->visited = true;
 
+	//Check that this vertex has edges
+	if (startingVertex->edges.size() == 0)
+	{
+		return false;
+	}
+
 	/*
 	* See if we can get there from each
 	* of the vertices we connect to.
 	* If we can get there from at least
 	* one of them, it is reachable.
-	*/
-
+	*/	
 	unsigned i = 0;
-	if (startingVertex->edges.size() == 0)
-		return false;
-
 	for (edgeP = &startingVertex->edges.at(0); i < startingVertex->edges.size(); )
-	{
-		if (isReachableRec(edgeP->getLinkedVertex(), endingVertex))
+	{		
+		if (isReachableRec(edgeP->getLinkedVertex(), endingVertex, cost))
 		{
-			cout << startingVertex->vertexID << " is on the path to : " << endingVertex->vertexID << endl;
+			cost += edgeP->getWeight();
+			//cout << startingVertex->vertexID << " is on the path to : " << endingVertex->vertexID << endl;
 			return true;
 		}
 
@@ -112,6 +121,7 @@ bool Graph::isReachableRec(Vertex* startingVertex, Vertex* endingVertex)
 			edgeP = &startingVertex->edges.at(i);
 		}			
 	}
+
 
 	/*
 	* Couldn't get there from any of our
