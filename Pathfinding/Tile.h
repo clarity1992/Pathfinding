@@ -1,14 +1,13 @@
 #pragma once
 
-#include "Position.h"
 #include "Size.h"
 #include "Color.h"
+#include "Vertex.h"
 #include <SDL.h>
 
 class Tile
 {
 public:
-
 	static enum Type
 	{
 		ROAD,
@@ -16,13 +15,19 @@ public:
 		WATER
 	};
 
-	Tile(Position position, Size size, Color color);
+	Tile(Point2D position, Size size, Color color);
 	~Tile(void);
 
-	void render(SDL_Window*);
+	Vertex* getNode()
+	{
+		return &node;
+	}
+
+	void render(SDL_Window* window);
 
 private:
-	Position position;
+	Vertex node;
+	Point2D position;
 	Size size;
 	Color color;
 	Type type;

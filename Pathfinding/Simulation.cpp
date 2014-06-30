@@ -6,6 +6,13 @@
 Simulation::Simulation(int SCREEN_WIDTH, int SCREEN_HEIGHT)
 {	
 	world = WorldBuilder::createWorld(WorldFileReader::readFile("world.txt", ' '));
+	world->createPathNetwork();
+	
+
+	agent = new Agent(Point2D(0,0));
+	std::queue<Vertex*> q;
+	Path* path = world->getGraph()->findPath(world->getGraph()->getNodes().at(0),world->getGraph()->getNodes().at(49));
+	agent->followPath(path);
 	isRunning = true;
 	window = NULL;
 
@@ -35,12 +42,22 @@ Simulation::~Simulation(void)
     SDL_Quit();
 }
 
+void Simulation::input()
+{
+
+}
+
 void Simulation::update()
 {
 	world->update();
+	agent->update();
 }
 
 void Simulation::render()
 {
 	world->render(window);	
+	agent->render(window);
+
+	//Update the surface
+	SDL_UpdateWindowSurface( window );   
 }

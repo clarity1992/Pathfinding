@@ -7,10 +7,20 @@
 class Vertex
 {
 public:
-	Vertex(std::string vertexID);
+	Vertex(Point2D point);
 	~Vertex();
 
+	Point2D getPosition() const;
+
 	void addEdge(Edge edge);
+	bool operator==(const Vertex& lhs)
+	{ 
+		if (this->position == lhs.getPosition())
+		{
+			return true;
+		}
+		return false;
+	}
 
 	bool visited;
 	std::string vertexID;
@@ -18,7 +28,7 @@ public:
 	std::vector<Edge> edges;
 private:
 	//The vertex's position in the world
-	//Point2D position;
+	Point2D position;
 
 		
 };

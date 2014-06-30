@@ -2,14 +2,20 @@
 
 using std::string;
 
-Vertex::Vertex(string vertexID): vertexID(vertexID)
+Vertex::Vertex(Point2D position): position(position)
 {
+	this->vertexID = position.toCoordinate();
 	visited = false;
 }
 
 Vertex::~Vertex()
 {
 
+}
+
+Point2D Vertex::getPosition() const
+{
+	return position;
 }
 
 void Vertex::addEdge(Edge edge)

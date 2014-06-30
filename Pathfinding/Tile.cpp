@@ -1,7 +1,7 @@
 #include "Tile.h"
 #include <SDL.h>
 
-Tile::Tile(Position position, Size size, Color color):position(position), size(size), color(color)
+Tile::Tile(Point2D position, Size size, Color color):position(position), size(size), color(color), node(position)
 {
 
 }
@@ -28,7 +28,4 @@ void Tile::render(SDL_Window* window)
 
 	//Fill the surface white
 	SDL_FillRect(screenSurface, &tileRect, SDL_MapRGB( screenSurface->format, color.r, color.g, color.b ) );
-            
-	//Update the surface
-	SDL_UpdateWindowSurface( window );   
 }

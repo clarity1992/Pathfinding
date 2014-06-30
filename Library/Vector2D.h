@@ -1,5 +1,6 @@
 #pragma once
 #include <math.h>
+#include <string>
 class Vector2D
 {
     public:
@@ -131,6 +132,11 @@ class Vector2D
 			y = ny;
     
 			return (*this);
+		}
+
+		std::string toString() const
+		{
+			return std::string("(") + std::to_string(this->x) + "," + std::to_string(this->y) + std::string(")");
 		}
 };
 

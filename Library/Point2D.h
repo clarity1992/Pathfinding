@@ -1,5 +1,6 @@
 #pragma once
 #include "Vector2D.h"
+#include <string>
 class Point2D : public Vector2D
 {
     public:
@@ -60,6 +61,11 @@ class Point2D : public Vector2D
             float f = 1.0F / t;
             return (Point2D(x * f, y * f));
         }
+
+		std::string toCoordinate() const
+		{
+			return std::string("(") + std::to_string(this->x) + "," + std::to_string(this->y) + std::string(")");
+		}
 };
 
 
