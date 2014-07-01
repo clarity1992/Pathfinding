@@ -1,3 +1,5 @@
-R R G
-W R G
-W W W
+R R R R W W R R R R
+R R W R W W R W R R
+R R W R R R R W R R
+R R W R W W R W R R
+R R R R W W R R R R

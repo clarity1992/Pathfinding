@@ -2,7 +2,7 @@
 
 using std::string;
 
-Vertex::Vertex(Point2D position): position(position)
+Vertex::Vertex(Point2D position, TerrianType type): position(position), type(type)
 {
 	this->vertexID = position.toCoordinate();
 	visited = false;

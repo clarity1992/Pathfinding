@@ -8,5 +8,6 @@ Performance is not a key concern, it is more about wrapping my head around *Basi
 * Implement different pathfinding algorithms (maybe construct report on performance differences etc.)
 	- A*
 	- BFS
-	- Dijkstra
+	- DFS
+
 * Add visual representation

@@ -3,11 +3,12 @@
 #include <vector>
 #include "Edge.h"
 #include <string>
+#include "Constants.h"
 
 class Vertex
 {
 public:
-	Vertex(Point2D point);
+	Vertex(Point2D point, TerrianType type);
 	~Vertex();
 
 	Point2D getPosition() const;
@@ -26,9 +27,9 @@ public:
 	std::string vertexID;
 	//The edges that connect this vertex to other vertex's in a graph.
 	std::vector<Edge> edges;
+	TerrianType type;	
 private:
 	//The vertex's position in the world
 	Point2D position;
-
 		
 };

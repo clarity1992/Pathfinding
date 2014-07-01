@@ -8,19 +8,22 @@
 class Agent
 {
 public:
-	Agent(Point2D startingPosition);
+	Agent(Vertex* startingPosition);
 	~Agent(void);
 
 	void update();
 	void render(SDL_Window* window);
 
-	void followPath(Path* path);
+	void moveToLocation(Vertex* location);
 
 private:
+	std::vector<TerrianType> traversableTerrianTypes;
 	Point2D position;
 	Size size;
 	Color color;
 	Path* path;
+
+	Vertex* currentGraphPosition;
 
 	//Physics
 	Vector2D velocity;

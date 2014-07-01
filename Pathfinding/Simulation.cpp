@@ -5,14 +5,13 @@
 
 Simulation::Simulation(int SCREEN_WIDTH, int SCREEN_HEIGHT)
 {	
-	world = WorldBuilder::createWorld(WorldFileReader::readFile("world.txt", ' '));
+	world = WorldBuilder::createWorld(WorldFileReader::readFile("testWorld1.txt", ' '));
 	world->createPathNetwork();
 	
 
-	agent = new Agent(Point2D(0,0));
-	std::queue<Vertex*> q;
-	Path* path = world->getGraph()->findPath(world->getGraph()->getNodes().at(0),world->getGraph()->getNodes().at(49));
-	agent->followPath(path);
+	agent = new Agent(world->getGraph()->getNodes().at(0));
+
+	agent->moveToLocation(world->getGraph()->getNodes().at(39));
 	isRunning = true;
 	window = NULL;
 

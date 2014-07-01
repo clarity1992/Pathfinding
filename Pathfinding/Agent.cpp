@@ -1,10 +1,15 @@
 #include "Agent.h"
+#include "Pathfinder.h"
 #include <SDL.h>
 #include <iostream>
+#include "Constants.h"
 
-Agent::Agent(Point2D startingPosition): position(startingPosition), size(40, 40), color(0,0,0)
+Agent::Agent(Vertex* startingPosition): currentGraphPosition(startingPosition), size(40, 40), color(0,0,0)
 {
 	this->velocity = Vector2D(0,0);
+	this->position = this->currentGraphPosition->getPosition();
+	this->traversableTerrianTypes.push_back(TerrianType::GRASS);
+	this->traversableTerrianTypes.push_back(TerrianType::ROAD);
 }
 
 Agent::~Agent(void)
@@ -42,8 +47,8 @@ void Agent::update()
 
 void Agent::render(SDL_Window* window)
 {
-	std::cout << this->position.toCoordinate() << std::endl;
-	std::cout << this->velocity.toString() << std::endl;
+	//std::cout << this->position.toCoordinate() << std::endl;
+	//std::cout << this->velocity.toString() << std::endl;
 	//The surface contained by the window
     SDL_Surface* screenSurface = NULL;
 
@@ -61,7 +66,7 @@ void Agent::render(SDL_Window* window)
 	SDL_FillRect(screenSurface, &tileRect, SDL_MapRGB( screenSurface->format, color.r, color.g, color.b ) );
 }
 
-void Agent::followPath(Path* path)
+void Agent::moveToLocation(Vertex* location)
 {
-	this->path = path;
+	this->path = Pathfinder::breadthFirstSearch(this->currentGraphPosition, location, this->traversableTerrianTypes);
 }

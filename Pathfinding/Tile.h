@@ -4,18 +4,12 @@
 #include "Color.h"
 #include "Vertex.h"
 #include <SDL.h>
+#include "Constants.h"
 
 class Tile
 {
 public:
-	static enum Type
-	{
-		ROAD,
-		GRASS, 
-		WATER
-	};
-
-	Tile(Point2D position, Size size, Color color);
+	Tile(Point2D position, Size size, Color color, TerrianType terrianType);
 	~Tile(void);
 
 	Vertex* getNode()
@@ -29,7 +23,6 @@ private:
 	Vertex node;
 	Point2D position;
 	Size size;
-	Color color;
-	Type type;
+	Color color;	
 };
 
