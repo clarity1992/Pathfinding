@@ -34,3 +34,11 @@ void Graph::addEdge(Vertex& vertexA, Vertex& vertexB, int weight)
 {
 	vertexA.addEdge(Edge(vertexB, weight));
 }
+
+void Graph::reset()
+{
+	for (unsigned i = 0; i < this->nodes.size(); ++i)
+	{
+		nodes.at(i)->visited = false;
+	}
+}

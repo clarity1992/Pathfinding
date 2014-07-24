@@ -12,15 +12,8 @@ int main( int argc, char* args[] )
 	SDL_Event evt;
 	while(simulation.isRunning)
 	{
-		capTimer.start();
-		while( SDL_PollEvent(&evt) )
-		{
-			switch(evt.type)
-			{
-			case SDL_QUIT:  simulation.isRunning = false;   break;
-			/* process other events you want to handle here */
-			}
-		}
+		capTimer.start();		
+		simulation.input();
 		simulation.update();
 		simulation.render();
 

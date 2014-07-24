@@ -1,7 +1,11 @@
 #include "Tile.h"
 #include <SDL.h>
 
-Tile::Tile(Point2D position, Size size, Color color, TerrianType terrianType):position(position), size(size), color(color), node(position, terrianType)
+Tile::Tile(Point2D position, Size size, Color color, TerrianType terrianType):
+	position(position),
+	size(size),
+	color(color),
+	node(position, terrianType)
 {
 
 }

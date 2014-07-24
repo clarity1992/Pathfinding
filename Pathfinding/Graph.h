@@ -13,6 +13,8 @@ public:
 
 	void addNode(Vertex* vertex);
 	void addEdge(Vertex& vertexA, Vertex& vertexB, int weight);
+
+	void reset();
 private:
 	std::vector<Vertex*> nodes;
 };

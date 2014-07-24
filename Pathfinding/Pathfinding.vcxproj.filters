@@ -130,6 +130,9 @@
     <Text Include="testWorld1.txt">
       <Filter>World</Filter>
     </Text>
+    <Text Include="testWorld2.txt">
+      <Filter>World</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="Tile.uxf" />

@@ -1,11 +1,13 @@
 #include "Pathfinder.h"
+
 #include <map>
 #include <algorithm>
 #include <queue>
 #include <iostream>
 
-Path* Pathfinder::breadthFirstSearch(Vertex* source, Vertex* target, std::vector<TerrianType> terrianTypes)
+Path* Pathfinder::breadthFirstSearch(Graph* graph, Vertex* source, Vertex* target, std::vector<TerrianType> terrianTypes)
 {	
+	graph->reset();
 	unsigned layerDepth = 0;
 	std::map<Vertex*, int> distances;
 	distances.insert(std::pair<Vertex*, int>(source, 0));

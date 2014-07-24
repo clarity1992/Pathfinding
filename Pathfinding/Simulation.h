@@ -16,9 +16,13 @@ public:
 	void render();
 
 private:
+
+	void spawnNewAgent(AgentType agentType);
 	//The window we'll be rendering to
     SDL_Window* window;
-	Agent* agent;
+
+	std::vector<Agent> agents;
+	std::vector<Agent>::iterator agentIT;
 	World* world;
 };
 
