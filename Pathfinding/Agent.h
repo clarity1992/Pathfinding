@@ -12,22 +12,20 @@ public:
 	Agent(Vertex* startingPosition, AgentType agentType);
 	~Agent(void);
 
-	void update();
-	void render(SDL_Window* window);
+	virtual void update();
+	virtual void render(SDL_Window* window);
 
-	void moveToLocationOnGraph(Graph* graph, Vertex* location);
-
-	static std::vector<TerrianType> getValidTerrianTypesByAgentType(AgentType agentType);
-
-private:
-	std::vector<TerrianType> traversableTerrianTypes;
+	virtual void moveToLocationOnGraph(Graph* graph, Vertex* location) = 0;	
+protected:
 	Point2D position;
 	Size size;
 	Color color;
 	Path* path;
 
-	Vertex* currentGraphPosition;
+	
 
+	Vertex* currentGraphPosition;
+	
 	//Physics
 	Vector2D velocity;
 };

@@ -18,39 +18,7 @@ Agent::Agent(Vertex* startingPosition, AgentType agentType):
 	size(TILE_WIDTH/1.5, TILE_HEIGHT/1.5)
 {
 	this->velocity = Vector2D(0,0);
-	this->position = this->currentGraphPosition->getPosition();
-	
-	if (agentType == AgentType::PEDESTRIAN)
-	{
-		this->traversableTerrianTypes.push_back(TerrianType::GRASS);
-		this->traversableTerrianTypes.push_back(TerrianType::PAVEMENT);		
-		this->color = Color(0,0,0);
-	}
-	else if(agentType == AgentType::CAR)
-	{		
-		this->traversableTerrianTypes.push_back(TerrianType::ROAD);
-		this->color = Color(255,255,255);
-	}	
-}
-
-std::vector<TerrianType> Agent::getValidTerrianTypesByAgentType(AgentType agentType)
-{
-	std::vector<TerrianType> traversableTerrianTypes;
-	if (agentType == AgentType::CAR)
-	{
-		traversableTerrianTypes.push_back(TerrianType::ROAD);
-		return traversableTerrianTypes;
-	}
-	else if(agentType == AgentType::PEDESTRIAN)
-	{
-		traversableTerrianTypes.push_back(TerrianType::GRASS);
-		traversableTerrianTypes.push_back(TerrianType::PAVEMENT);
-		return traversableTerrianTypes;
-	}
-	else
-	{
-		return std::vector<TerrianType>();
-	}
+	this->position = this->currentGraphPosition->getPosition();	
 }
 
 Agent::~Agent(void)
@@ -68,6 +36,7 @@ void Agent::update()
 		{
 			delete path;
 			path = 0;
+			//TODO:Ask for new path
 			//this->position = Point2D(-100,-100);
 		}
 		else if (this->position == this->path->getCurrentTarget()->getPosition())
@@ -108,11 +77,3 @@ void Agent::render(SDL_Window* window)
 	SDL_FillRect(screenSurface, &tileRect, SDL_MapRGB( screenSurface->format, color.r, color.g, color.b ) );
 }
 
-void Agent::moveToLocationOnGraph(Graph* graph, Vertex* location)
-{
-	this->path = Pathfinder::breadthFirstSearch(
-		graph,
-		this->currentGraphPosition,
-		location,
-		this->traversableTerrianTypes);
-}

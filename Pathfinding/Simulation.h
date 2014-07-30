@@ -21,8 +21,8 @@ private:
 	//The window we'll be rendering to
     SDL_Window* window;
 
-	std::vector<Agent> agents;
-	std::vector<Agent>::iterator agentIT;
+	std::vector<Agent*> agents;
+	std::vector<Agent*>::iterator agentIT;
 	World* world;
 };
 

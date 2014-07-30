@@ -44,6 +44,22 @@ Tile* TileFactory::createTile(std::string tileType, int rowCount, int columnCoun
 			Color(255, 20, 0),
 			TerrianType::BUILDING);
 	}
+	else if(tileType == "I")
+	{		
+		tile = new Tile(
+			Point2D(rowCount * TILE_WIDTH, columnCount * TILE_HEIGHT),
+			Size(TILE_WIDTH, TILE_HEIGHT),
+			Color(90,90,90),
+			TerrianType::INTERSECTION);
+	}
+	else if(tileType == "C")
+	{		
+		tile = new Tile(
+			Point2D(rowCount * TILE_WIDTH, columnCount * TILE_HEIGHT),
+			Size(TILE_WIDTH, TILE_HEIGHT),
+			Color(150,150, 150),
+			TerrianType::CROSSING);
+	}
 	else
 	{
 		tile = new Tile(

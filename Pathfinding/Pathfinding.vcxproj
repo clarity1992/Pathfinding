@@ -133,10 +133,12 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="Pathfinder.cpp" />
+    <ClCompile Include="PedestrianAgent.cpp" />
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileFactory.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="VehicleAgent.cpp" />
     <ClCompile Include="Vertex.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="WorldBuilder.cpp" />
@@ -152,10 +154,12 @@
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="Pathfinder.h" />
+    <ClInclude Include="PedestrianAgent.h" />
     <ClInclude Include="Simulation.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileFactory.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="VehicleAgent.h" />
     <ClInclude Include="Vertex.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="WorldBuilder.h" />

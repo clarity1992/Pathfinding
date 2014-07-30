@@ -1,4 +1,6 @@
 #include "Simulation.h"
+#include "VehicleAgent.h"
+#include "PedestrianAgent.h"
 #include "WorldBuilder.h"
 #include "WorldFileReader.h"
 #include <stdio.h>
@@ -7,8 +9,19 @@
 
 Simulation::Simulation(int SCREEN_WIDTH, int SCREEN_HEIGHT)
 {	
+	std::vector<TerrianType> t;
+	t.push_back(TerrianType::INTERSECTION);
+	t.push_back(TerrianType::CROSSING);
+	t.push_back(TerrianType::ROAD);
+	VehicleAgent::setTraversableTerrianTypes(t);
 
-	srand (time(NULL));
+	std::vector<TerrianType> p;
+	p.push_back(TerrianType::GRASS);
+	p.push_back(TerrianType::CROSSING);
+	p.push_back(TerrianType::PAVEMENT);
+	PedestrianAgent::setTraversableTerrianTypes(p);
+
+	srand (time(0));
 
 	world = WorldBuilder::createWorld(WorldFileReader::readFile("testWorld2.txt", ' '));
 	world->createPathNetwork();
@@ -31,7 +44,7 @@ Simulation::Simulation(int SCREEN_WIDTH, int SCREEN_HEIGHT)
         //Create window
         window = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
         if( window == NULL )
-        {
+		{
             printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
         }			
     }
@@ -85,35 +98,41 @@ void Simulation::input()
 void Simulation::update()
 {
 	world->update();
-	for (agentIT = agents.begin(); agentIT != agents.end(); ++agentIT)
+	for (unsigned i = 0; i < agents.size(); ++i)
 	{
-		agentIT->update();
+		agents.at(i)->update();
 	}
 }
 
 void Simulation::render()
 {
-	world->render(window);	
-	for (agentIT = agents.begin(); agentIT != agents.end(); ++agentIT)
+	world->render(this->window);	
+	for (unsigned i = 0; i < agents.size(); ++i)
 	{
-		agentIT->render(window);
+		agents.at(i)->render(this->window);
 	}
 
 	//Update the surface
-	SDL_UpdateWindowSurface( window );   
+	SDL_UpdateWindowSurface( this->window );   
 }
 
 /**
  * TODO: AGENT FACTORY
  */
 void Simulation::spawnNewAgent(AgentType agentType)
-{
+{	
 	unsigned originNodeIndex = rand() % this->world->getGraph()->getNodes().size();
 	unsigned destNodeIndex = rand() % this->world->getGraph()->getNodes().size();
 	
-	std::vector<TerrianType> validTerrianTypes = Agent::getValidTerrianTypesByAgentType(agentType);
-
-
+	std::vector<TerrianType> validTerrianTypes;
+	if (agentType == AgentType::CAR)
+	{
+		validTerrianTypes = VehicleAgent::getTraversableTerrianTypes();
+	}
+	else if (agentType == AgentType::PEDESTRIAN)
+	{
+		validTerrianTypes = PedestrianAgent::getTraversableTerrianTypes();
+	}
 	
 
 	while( true )
@@ -144,8 +163,16 @@ void Simulation::spawnNewAgent(AgentType agentType)
 		}
 	}
 	
-	Agent newAgent = Agent(world->getGraph()->getNodes().at( originNodeIndex), agentType);
-	agents.push_back(Agent(newAgent));
-	agents.back().moveToLocationOnGraph(world->getGraph(), world->getGraph()->getNodes().at(destNodeIndex));	
-	
+	if (agentType == AgentType::CAR)
+	{
+		VehicleAgent* newAgent = new VehicleAgent(world->getGraph()->getNodes().at( originNodeIndex));
+		agents.push_back(newAgent);
+		agents.back()->moveToLocationOnGraph(world->getGraph(), world->getGraph()->getNodes().at(destNodeIndex));
+	}
+	else if (agentType == AgentType::PEDESTRIAN)
+	{
+		PedestrianAgent* newAgent = new PedestrianAgent(world->getGraph()->getNodes().at( originNodeIndex));
+		agents.push_back(newAgent);
+		agents.back()->moveToLocationOnGraph(world->getGraph(), world->getGraph()->getNodes().at(destNodeIndex));
+	}
 }
