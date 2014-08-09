@@ -5,6 +5,8 @@
 VehicleAgent::VehicleAgent(Vertex* startingPosition): Agent(startingPosition)
 {	
 	this->color = Color(255,255,255);
+	this->maxAcceleration = 3;
+	this->maxSpeed = 10;
 }
 
 VehicleAgent::~VehicleAgent(void)

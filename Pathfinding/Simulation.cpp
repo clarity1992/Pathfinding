@@ -27,9 +27,7 @@ Simulation::Simulation(int SCREEN_WIDTH, int SCREEN_HEIGHT)
 	world->createPathNetwork();
 	
 	spawnNewAgent(AgentType::CAR);
-	spawnNewAgent(AgentType::CAR);
-	spawnNewAgent(AgentType::PEDESTRIAN);
-	spawnNewAgent(AgentType::PEDESTRIAN);
+	
 
 	isRunning = true;
 	window = NULL;

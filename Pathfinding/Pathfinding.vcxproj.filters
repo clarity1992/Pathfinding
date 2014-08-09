@@ -22,6 +22,9 @@
     <Filter Include="World\Tile">
       <UniqueIdentifier>{1d3c160a-0a58-4dad-9181-44a7a07dea9e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Agent">
+      <UniqueIdentifier>{f35a75f3-9f09-4648-96e7-0caaf8007bef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -60,20 +63,23 @@
     <ClCompile Include="TileFactory.cpp">
       <Filter>World\Tile</Filter>
     </ClCompile>
-    <ClCompile Include="Agent.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Path.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Agent.cpp">
+      <Filter>Agent</Filter>
+    </ClCompile>
+    <ClCompile Include="AgentSteeringBehaviour.cpp">
+      <Filter>Agent</Filter>
+    </ClCompile>
     <ClCompile Include="VehicleAgent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Agent</Filter>
     </ClCompile>
     <ClCompile Include="PedestrianAgent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Agent</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,20 +125,23 @@
     <ClInclude Include="Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Agent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Path.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="VehicleAgent.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Agent.h">
+      <Filter>Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="AgentSteeringBehaviour.h">
+      <Filter>Agent</Filter>
     </ClInclude>
     <ClInclude Include="PedestrianAgent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="VehicleAgent.h">
+      <Filter>Agent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

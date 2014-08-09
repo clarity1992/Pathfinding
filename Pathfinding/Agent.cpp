@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <iostream>
 #include "Constants.h"
+#include "AgentSteeringBehaviour.h"
 
 Agent::Agent(Vertex* startingPosition):
 	currentGraphPosition(startingPosition),
@@ -10,6 +11,7 @@ Agent::Agent(Vertex* startingPosition):
 	color(0,0,0)
 {
 	this->velocity = Vector2D(0,0);
+	this->maxAcceleration = 1;
 	this->position = this->currentGraphPosition->getPosition();	
 }
 
@@ -29,27 +31,22 @@ Agent::~Agent(void)
 void Agent::update()
 {
 	if (path)
-	{
-		this->velocity = Vector2D(0,0);
-
+	{		
 		if(this->position == this->path->getEndNode()->getPosition())
 		{
 			delete path;
 			path = 0;
-			//TODO:Ask for new path
-			//this->position = Point2D(-100,-100);
+			//TODO:Ask for new path			
 		}
 		else if (this->position == this->path->getCurrentTarget()->getPosition())
 		{
-			this->path->setNextTarget();
-			Vector2D velocity = Vector2D(path->getCurrentTarget()->getPosition() - this->position).normalize();
-			this->velocity = ( velocity - this->velocity );
+			this->path->setNextTarget();		
+			this->velocity = AgentSteeringBehaviour::seek(this->position, this->path->getCurrentTarget()->getPosition(), this->maxAcceleration);
 			this->position += this->velocity;	
 		}
 		else
-		{
-			Vector2D velocity = Vector2D(path->getCurrentTarget()->getPosition() - this->position).normalize();
-			this->velocity = ( velocity - this->velocity );
+		{			
+			this->velocity = AgentSteeringBehaviour::seek(this->position, this->path->getCurrentTarget()->getPosition(), this->maxAcceleration);
 			this->position += this->velocity;	
 		}
 		

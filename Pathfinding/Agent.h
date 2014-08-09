@@ -5,6 +5,8 @@
 #include "Size.h"
 #include <SDL.h>
 #include "Graph.h"
+
+#include "../Library/Point2D.h"
 class Agent
 {
 public:
@@ -22,8 +24,8 @@ protected:
 	Color color;
 	Path* path;
 
-	
-
+	float maxAcceleration;
+	float maxSpeed;
 	Vertex* currentGraphPosition;
 	
 	//Physics

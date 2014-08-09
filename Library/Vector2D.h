@@ -119,6 +119,11 @@ class Vector2D
         {
             return (*this /= sqrtf(x * x + y * y));
         }
+
+		float length(void)
+        {
+            return (sqrtf(x * x + y * y));
+        }
         
         Vector2D& rotate(float angle)
 		{

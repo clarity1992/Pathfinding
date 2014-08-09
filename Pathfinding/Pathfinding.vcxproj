@@ -127,6 +127,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Agent.cpp" />
+    <ClCompile Include="AgentSteeringBehaviour.cpp" />
     <ClCompile Include="AStarSearch.cpp" />
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="Graph.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="..\Library\Point2D.h" />
     <ClInclude Include="..\Library\Vector2D.h" />
     <ClInclude Include="Agent.h" />
+    <ClInclude Include="AgentSteeringBehaviour.h" />
     <ClInclude Include="AStarSearch.h" />
     <ClInclude Include="Edge.h" />
     <ClInclude Include="Graph.h" />
