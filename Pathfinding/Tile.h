@@ -17,7 +17,7 @@ public:
 		return &node;
 	}
 
-	void render(SDL_Window* window);
+	void render(SDL_Window* window) const;
 
 private:
 	Vertex node;

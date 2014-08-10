@@ -25,6 +25,9 @@
     <Filter Include="Agent">
       <UniqueIdentifier>{f35a75f3-9f09-4648-96e7-0caaf8007bef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{c5401223-3fc2-4601-9b8b-022a909f6cab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -80,6 +83,12 @@
     </ClCompile>
     <ClCompile Include="PedestrianAgent.cpp">
       <Filter>Agent</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsEngine.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="SDLGraphicsEngine.cpp">
+      <Filter>Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +151,12 @@
     </ClInclude>
     <ClInclude Include="VehicleAgent.h">
       <Filter>Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsEngine.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SDLGraphicsEngine.h">
+      <Filter>Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

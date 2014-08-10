@@ -6,9 +6,11 @@
 #include <stdio.h>
 #include <stdlib.h>     
 #include <time.h>
+#include "SDLGraphicsEngine.h"
 
 Simulation::Simulation(int SCREEN_WIDTH, int SCREEN_HEIGHT)
 {	
+	graphicsEngine = new SDLGraphicsEngine(SCREEN_WIDTH, SCREEN_HEIGHT);	
 	std::vector<TerrianType> t;
 	t.push_back(TerrianType::INTERSECTION);
 	t.push_back(TerrianType::CROSSING);
@@ -27,32 +29,15 @@ Simulation::Simulation(int SCREEN_WIDTH, int SCREEN_HEIGHT)
 	world->createPathNetwork();
 	
 	spawnNewAgent(AgentType::CAR);
-	
 
 	isRunning = true;
-	window = NULL;
-
-	//Initialize SDL
-    if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
-    {
-        printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
-    }
-	else
-    {
-        //Create window
-        window = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
-        if( window == NULL )
-		{
-            printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
-        }			
-    }
+	
 }
 
 
 Simulation::~Simulation(void)
 {
-	//Destroy window
-    SDL_DestroyWindow( window );
+    
 
     //Quit SDL subsystems
     SDL_Quit();
@@ -102,16 +87,9 @@ void Simulation::update()
 	}
 }
 
-void Simulation::render()
+void Simulation::render() const
 {
-	world->render(this->window);	
-	for (unsigned i = 0; i < agents.size(); ++i)
-	{
-		agents.at(i)->render(this->window);
-	}
-
-	//Update the surface
-	SDL_UpdateWindowSurface( this->window );   
+	this->graphicsEngine->render(this->world, this->agents);
 }
 
 /**

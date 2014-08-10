@@ -30,5 +30,6 @@ protected:
 	
 	//Physics
 	Vector2D velocity;
+	float orientation;
 };
 

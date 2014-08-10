@@ -12,7 +12,7 @@ public:
 	Graph* getGraph() {return graph;}
 
 	void update();
-	void render(SDL_Window* window);
+	void render(SDL_Window* window) const;
 
 	void createPathNetwork();
 private:

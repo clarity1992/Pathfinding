@@ -5,7 +5,7 @@
 
 int main( int argc, char* args[] )
 {
-	Simulation simulation(1024, 720);
+	Simulation simulation(SCREEN_WIDTH, SCREEN_HEIGHT);
 	Timer capTimer;
 	Timer fpsTimer;
 	fpsTimer.start();

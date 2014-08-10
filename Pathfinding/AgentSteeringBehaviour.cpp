@@ -7,7 +7,9 @@ Vector2D AgentSteeringBehaviour::seek(Vector2D agentPosition,
 	return Vector2D(targetPosition - agentPosition).normalize() * agentMaxAcceleration;	
 }
 
-Vector2D AgentSteeringBehaviour::flee(Vector2D agentPosition, Vector2D targetPosition, float agentMaxAcceleration)
+Vector2D AgentSteeringBehaviour::flee(Vector2D agentPosition,
+									  Vector2D targetPosition,
+									  float agentMaxAcceleration)
 {
 	Vector2D velocity = Vector2D(agentPosition - targetPosition);
 	velocity.normalize();
@@ -57,4 +59,17 @@ Vector2D AgentSteeringBehaviour::arrive(Vector2D agentPosition,
 		velocity *= agentMaxAcceleration;
 	}	
 	return velocity;
+}
+
+float AgentSteeringBehaviour::orientation (Vector2D agentVelocity,
+										   float agentOrientation)
+{
+	if (agentVelocity.length() > 0)
+	{
+		return atan2(agentVelocity.x, agentVelocity.y);
+	}
+	else
+	{
+		return agentOrientation;
+	}	
 }

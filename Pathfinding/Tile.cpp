@@ -1,6 +1,7 @@
 #include "Tile.h"
 #include <SDL.h>
-
+#include <SDL_opengl.h>
+#include <GL\GLU.h>
 Tile::Tile(Point2D position, Size size, Color color, TerrianType terrianType):
 	position(position),
 	size(size),
@@ -15,21 +16,25 @@ Tile::~Tile(void)
 {
 }
 
-void Tile::render(SDL_Window* window)
+void Tile::render(SDL_Window* window) const
 {
-    //The surface contained by the window
-    SDL_Surface* screenSurface = NULL;
-
-	//Get window surface
-	screenSurface = SDL_GetWindowSurface(window);
-
-	//Tile Rectangle
-	SDL_Rect tileRect;
-	tileRect.x = position.x;
-	tileRect.y = position.y;
-	tileRect.w = size.width;
-	tileRect.h = size.height;
-
-	//Fill the surface white
-	SDL_FillRect(screenSurface, &tileRect, SDL_MapRGB( screenSurface->format, color.r, color.g, color.b ) );
+	glLoadIdentity();
+	float x = this->position.x,
+		  y = this->position.y,
+		  width = this->size.width,
+		  height = this->size.height;
+	glTranslatef( x, y , 0);
+	
+   	glBegin( GL_QUADS );		
+		glColor3f(float(this->color.r)/255, float(this->color.g)/255, float(this->color.b)/255);
+		glVertex2f( -width/2, -height/2);
+        glVertex2f( width/2, -height/2 );
+        glVertex2f( width/2, height/2);
+        glVertex2f( -width/2, height/2 );
+    glEnd();
+	GLenum error = glGetError();
+	if( error != GL_NO_ERROR )
+    {
+        printf( "Error initializing OpenGL! %s\n", gluErrorString( error ) );
+    }
 }

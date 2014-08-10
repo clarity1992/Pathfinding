@@ -81,7 +81,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -131,10 +131,12 @@
     <ClCompile Include="AStarSearch.cpp" />
     <ClCompile Include="Edge.cpp" />
     <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="GraphicsEngine.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="Pathfinder.cpp" />
     <ClCompile Include="PedestrianAgent.cpp" />
+    <ClCompile Include="SDLGraphicsEngine.cpp" />
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileFactory.cpp" />
@@ -154,9 +156,11 @@
     <ClInclude Include="Edge.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="GraphicsEngine.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="Pathfinder.h" />
     <ClInclude Include="PedestrianAgent.h" />
+    <ClInclude Include="SDLGraphicsEngine.h" />
     <ClInclude Include="Simulation.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileFactory.h" />

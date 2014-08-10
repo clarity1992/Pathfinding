@@ -1,6 +1,8 @@
 #include "World.h"
 #include <iostream>
-
+#include <SDL.h>
+#include <SDL_opengl.h>
+#include <GL\GLU.h>
 
 World::World(std::vector<std::vector<Tile>> tiles): tiles(tiles)
 {
@@ -19,14 +21,15 @@ void World::update()
 
 }
 
-void World::render(SDL_Window* window)
+void World::render(SDL_Window* window) const
 {
 	//std::cout << "Frame" << std::endl;
-	std::vector<std::vector<Tile>>::iterator tileRow;
-	std::vector<Tile>::iterator tile;
+	std::vector<std::vector<Tile>>::const_iterator tileRow;
+	std::vector<Tile>::const_iterator tile;
 
 	for (tileRow = tiles.begin(); tileRow != tiles.end(); ++tileRow)
 	{		
+		
 		for (tile = tileRow->begin(); tile != tileRow->end(); ++tile)
 		{
 			tile->render(window);

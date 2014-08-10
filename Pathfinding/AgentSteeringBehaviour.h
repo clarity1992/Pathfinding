@@ -1,4 +1,5 @@
 #pragma once
+#include <math.h>
 #include "../Library/Vector2D.h"
 class AgentSteeringBehaviour
 {
@@ -16,6 +17,9 @@ public:
 						   Vector2D agentVelocity,
 						   float agentMaxAcceleration,
 						   float agentMaxSpeed);
+
+	static float orientation(Vector2D agentVelocity,
+							 float currentOrientation);
 
 
 };
