@@ -35,6 +35,6 @@ void Tile::render(SDL_Window* window) const
 	GLenum error = glGetError();
 	if( error != GL_NO_ERROR )
     {
-        printf( "Error initializing OpenGL! %s\n", gluErrorString( error ) );
+        printf( "Error OpenGL! %s\n", gluErrorString( error ) );
     }
 }

@@ -1,5 +1,5 @@
 #include "AgentSteeringBehaviour.h"
-
+#include "Constants.h"
 Vector2D AgentSteeringBehaviour::seek(Vector2D agentPosition,
 									  Vector2D targetPosition,
 									  float agentMaxAcceleration)
@@ -66,7 +66,7 @@ float AgentSteeringBehaviour::orientation (Vector2D agentVelocity,
 {
 	if (agentVelocity.length() > 0)
 	{
-		return atan2(agentVelocity.x, agentVelocity.y);
+		return atan2 (agentVelocity.y, agentVelocity.x) * 180 / PI;
 	}
 	else
 	{

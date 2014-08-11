@@ -10,10 +10,6 @@ public:
 	void render(const World* world, const std::vector<Agent*> agents);
 
 private:
-	SDL_Window* window;
-	SDL_GLContext context;
-
 	bool init(unsigned screenWidth, unsigned screenHeight);
-	bool initGL();
 };
 

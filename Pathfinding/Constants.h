@@ -1,4 +1,5 @@
 #pragma once
+#define PI 3.14159265
 
 const unsigned TILE_WIDTH = 15;
 const unsigned TILE_HEIGHT = 15;

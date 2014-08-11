@@ -19,7 +19,7 @@ public:
 
 	virtual void moveToLocationOnGraph(Graph* graph, Vertex* location) = 0;	
 protected:
-	Point2D position;
+	
 	Size size;
 	Color color;
 	Path* path;
@@ -30,6 +30,8 @@ protected:
 	
 	//Physics
 	Vector2D velocity;
+	Point2D position;
 	float orientation;
+	float rotation;
 };
 

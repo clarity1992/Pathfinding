@@ -6,6 +6,7 @@ PedestrianAgent::PedestrianAgent(Vertex* startingPosition): Agent(startingPositi
 	traversableTerrianTypes.push_back(TerrianType::GRASS);
 	traversableTerrianTypes.push_back(TerrianType::PAVEMENT);		
 	this->color = Color(0,0,0);
+	this->size = Size(TILE_WIDTH/3, TILE_HEIGHT/3);
 }
 
 

@@ -6,11 +6,11 @@
 #include <stdio.h>
 #include <stdlib.h>     
 #include <time.h>
-#include "SDLGraphicsEngine.h"
+#include "OpenGLGraphicsEngine.h"
 
 Simulation::Simulation(int SCREEN_WIDTH, int SCREEN_HEIGHT)
 {	
-	graphicsEngine = new SDLGraphicsEngine(SCREEN_WIDTH, SCREEN_HEIGHT);	
+	graphicsEngine = new OpenGLGraphicsEngine(SCREEN_WIDTH, SCREEN_HEIGHT);	
 	std::vector<TerrianType> t;
 	t.push_back(TerrianType::INTERSECTION);
 	t.push_back(TerrianType::CROSSING);

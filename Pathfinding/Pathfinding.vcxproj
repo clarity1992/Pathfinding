@@ -133,6 +133,7 @@
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="GraphicsEngine.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="OpenGLGraphicsEngine.cpp" />
     <ClCompile Include="Path.cpp" />
     <ClCompile Include="Pathfinder.cpp" />
     <ClCompile Include="PedestrianAgent.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="GraphicsEngine.h" />
+    <ClInclude Include="OpenGLGraphicsEngine.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="Pathfinder.h" />
     <ClInclude Include="PedestrianAgent.h" />

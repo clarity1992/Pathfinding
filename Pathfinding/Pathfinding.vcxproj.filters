@@ -90,6 +90,9 @@
     <ClCompile Include="SDLGraphicsEngine.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="OpenGLGraphicsEngine.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vertex.h">
@@ -156,6 +159,9 @@
       <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="SDLGraphicsEngine.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLGraphicsEngine.h">
       <Filter>Graphics</Filter>
     </ClInclude>
   </ItemGroup>
