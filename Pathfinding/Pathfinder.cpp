@@ -84,8 +84,7 @@ Path* Pathfinder::breadthFirstSearch(Graph* graph, Vertex* source, Vertex* targe
 				if (distances[v]+1 > layerDepth)
 				{
 					layerDepth = distances[v]+1;
-				}
-				
+				}				
 			}				
 		}
 	}

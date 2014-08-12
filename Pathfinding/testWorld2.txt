@@ -1,11 +1,12 @@
-R R R R R R R R R R
-R P P P P P P P C P
-R P B B R G G P R P
-R P B B R G G P R P
-R P P P R P P P C P
-R C R R R R R C R C
-R P P P P P P P C P
-R P B B B B B P R P
-R P B B B B B P R P
-R P P P P P P P C P 
-R R R R R R R R R R
+W W W W W W W W W W W W W W W W
+W R R R R R R R R R R R R R R R
+W R P P P P P P P C P P P P C P
+W R P B B R G G P R P B B P R P
+W R P B B R G G P R P B B P R P
+W R P P P R P P P C P P P P R P
+W R C R R R R R C R C R R R R R
+W R P P P P P P P C P P P P P P
+W R P B B B B B P R P G G G G G
+W R P B B B B B P R P G G G G G
+W R P P P P P P P C P G G G G G
+W R R R R R R R R R P G G G G G
