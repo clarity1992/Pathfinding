@@ -5,8 +5,8 @@
 #include "Size.h"
 #include <SDL.h>
 #include "Graph.h"
-
 #include "../Library/Point2D.h"
+#include "GraphicsEngine.h"
 class Agent
 {
 public:
@@ -15,7 +15,7 @@ public:
 	~Agent(void);
 
 	virtual void update();
-	virtual void render(SDL_Window* window);
+	virtual void render(GraphicsEngine* graphicsEngine);
 
 	virtual void moveToLocationOnGraph(Graph* graph, Vertex* location) = 0;	
 protected:

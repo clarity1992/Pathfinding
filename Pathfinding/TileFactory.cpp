@@ -60,6 +60,14 @@ Tile* TileFactory::createTile(std::string tileType, int rowCount, int columnCoun
 			Color(150,150, 150),
 			TerrianType::CROSSING);
 	}
+	else if(tileType == "N")
+	{		
+		tile = new Tile(
+			Point2D(rowCount * TILE_WIDTH, columnCount * TILE_HEIGHT),
+			Size(TILE_WIDTH, TILE_HEIGHT),
+			Color(0,0, 0),
+			TerrianType::WATER);
+	}
 	else
 	{
 		tile = new Tile(

@@ -7,7 +7,6 @@
 #include <stdlib.h>     
 #include <time.h>
 #include "OpenGLGraphicsEngine.h"
-
 Simulation::Simulation(int SCREEN_WIDTH, int SCREEN_HEIGHT)
 {	
 	graphicsEngine = new OpenGLGraphicsEngine(SCREEN_WIDTH, SCREEN_HEIGHT);	
@@ -25,13 +24,12 @@ Simulation::Simulation(int SCREEN_WIDTH, int SCREEN_HEIGHT)
 
 	srand (time(0));
 
-	world = WorldBuilder::createWorld(WorldFileReader::readFile("testWorld2.txt", ' '));
+	world = WorldBuilder::createWorld(WorldFileReader::readFile("testWorld3.txt", ' '));
 	world->createPathNetwork();
 	
 	spawnNewAgent(AgentType::CAR);
 
-	isRunning = true;
-	
+	isRunning = true;	
 }
 
 
@@ -88,8 +86,13 @@ void Simulation::update()
 }
 
 void Simulation::render() const
-{
-	this->graphicsEngine->render(this->world, this->agents);
+{	
+	this->world->render(this->graphicsEngine);
+	for (unsigned i = 0; i < agents.size(); ++i)
+	{
+		agents.at(i)->render(this->graphicsEngine);
+	}
+	this->graphicsEngine->refreshFrame();
 }
 
 /**

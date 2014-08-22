@@ -7,7 +7,8 @@ public:
 	SDLGraphicsEngine(unsigned screenWidth, unsigned screenHeight);
 	~SDLGraphicsEngine(void);	
 	
-	void render(const World* world, const std::vector<Agent*> agents);
+	virtual void refreshFrame();
+	void render(const Size& size, const Color& color, const Point2D& position, const float& orientation);
 
 private:
 	bool init(unsigned screenWidth, unsigned screenHeight);

@@ -14,11 +14,16 @@ SDLGraphicsEngine::~SDLGraphicsEngine(void)
 
 bool SDLGraphicsEngine::init(unsigned screenWidth, unsigned screenHeight)
 {
-	assert(false);
+	//assert(false);
 	return false;
 }
 
-void SDLGraphicsEngine::render(const World* world, const std::vector<Agent*> agents)
+void SDLGraphicsEngine::refreshFrame()
 {
-	assert(false);
+	//assert(false);
+}
+
+void SDLGraphicsEngine::render(const Size& size, const Color& color, const Point2D& position, const float& orientation)
+{
+	//assert(false);
 }

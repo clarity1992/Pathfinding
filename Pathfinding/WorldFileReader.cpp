@@ -6,9 +6,9 @@
 
 using namespace std;
 
-std::vector<std::vector<std::string>> WorldFileReader::readFile(std::string fileName, char delimiter)
+vector<vector<string>> WorldFileReader::readFile(string fileName, char delimiter)
 {
-	std::vector<std::vector<std::string>> rawWorldData;
+	vector<vector<string>> rawWorldData;
 	ifstream file(fileName);
 	string line;
 	if (file.is_open())
@@ -16,7 +16,7 @@ std::vector<std::vector<std::string>> WorldFileReader::readFile(std::string file
 		unsigned currentLine = 0;
 		while ( getline (file,line) )
 		{
-			std::vector<std::string> splitLine = split(line, delimiter);
+			vector<string> splitLine = split(line, delimiter);
 			rawWorldData.push_back(splitLine);
 			currentLine++;
 		}
@@ -29,18 +29,18 @@ std::vector<std::vector<std::string>> WorldFileReader::readFile(std::string file
 	return rawWorldData;
 }
 
-std::vector<std::string> WorldFileReader::split(const std::string &s, char delim)
+vector<string> WorldFileReader::split(const string &s, char delim)
 {
-    std::vector<std::string> elems;
+    vector<string> elems;
     split(s, delim, elems);
     return elems;
 }
 
-std::vector<std::string>& WorldFileReader::split(const std::string &s, char delim, std::vector<std::string> &elems)
+vector<string>& WorldFileReader::split(const string &s, char delim, vector<string> &elems)
 {
-    std::stringstream ss(s);
-    std::string item;
-    while (std::getline(ss, item, delim)) {
+    stringstream ss(s);
+    string item;
+    while (getline(ss, item, delim)) {
         elems.push_back(item);
     }
     return elems;

@@ -3,6 +3,7 @@
 #include "Tile.h"
 #include <SDL.h>
 #include "Graph.h"
+#include "GraphicsEngine.h"
 class World
 {
 public:
@@ -12,7 +13,7 @@ public:
 	Graph* getGraph() {return graph;}
 
 	void update();
-	void render(SDL_Window* window) const;
+	void render(GraphicsEngine* graphicsEngine) const;
 
 	void createPathNetwork();
 private:

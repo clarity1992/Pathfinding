@@ -1,0 +1,49 @@
+W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W W
+W R R R R R R R R R R R R R R P B B B B P
+W R P P P P P P P C P P P P C P B B B B P
+W R P B B R G G P R P B B P R P B B B B P
+W R P B B R G G P R P B B P R P B B B B P
+W R P P P R P P P C P P P P R P P P P P P 
+W R C R R R R R C R C R R R R R R R C R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R W
+W R P P P P P P P C P P P P P P P P P P P P P P P P P P P P P R
+W R P B B B B B P R P G G G G G G G G G P G G G G G G G G G P R
+W R P B B B B B P R P G G G G G G G G G P G G G G G G G G G P R
+W R P P P P P P P C P G G G G G G G G G P G G G G G G G G G P R
+W R R R R R R R R R P G G G G G G G G P P P G G G G G G G G P R
+W R P P P P P P P P P P P P P P P P P P W P P P P P P P P P P R
+W R P G P G P G P G P G G G G G G G G P P P G G G G G G G G P R
+W R P G P G P G P G P G G G G G G G G G P G G G G G G G G G P R
+W R P P P P P P P P P G G G G G G G G G P G G G G G G G G G P R
+W R R R R R R R R R P P P P P P P P P P P P P P P P P P P P P R
+W R W W W W W W W R C R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R
+W R W W W W W W W R P P P P P P P P P P P P P P P P P P P P P P P P P C P P C P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P
+W R W W W W W W W R P B B B B B B B B B B B B B B B B B B B B B B B B R B B R B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B
+W R W W W W W W W P P B B B B B B B B B B B B B B B B B B B B B B B B R B B R B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B
+W R W W W W W W W B B B B B B B B B B B B B B B B B B B B B B B B B B R R R R B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B
+W R W W W W W W W B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B B R
+W R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R
+W R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R R
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W
+W

@@ -1,8 +1,5 @@
 #include "World.h"
 #include <iostream>
-#include <SDL.h>
-#include <SDL_opengl.h>
-#include <GL\GLU.h>
 
 World::World(std::vector<std::vector<Tile>> tiles): tiles(tiles)
 {
@@ -21,7 +18,7 @@ void World::update()
 
 }
 
-void World::render(SDL_Window* window) const
+void World::render(GraphicsEngine* graphicsEngine) const
 {
 	//std::cout << "Frame" << std::endl;
 	std::vector<std::vector<Tile>>::const_iterator tileRow;
@@ -32,7 +29,7 @@ void World::render(SDL_Window* window) const
 		
 		for (tile = tileRow->begin(); tile != tileRow->end(); ++tile)
 		{
-			tile->render(window);
+			tile->render(graphicsEngine);
 		}
 	}
 }
@@ -83,14 +80,14 @@ void World::createPathNetwork()
 			}			
 		}
 	}
-	std::cout << "Number of Nodes" << graph->getNodes().size() << std::endl;
+	//std::cout << "Number of Nodes" << graph->getNodes().size() << std::endl;
 	unsigned numberOfEdges = 0;
 
 	for (unsigned i = 0; i < graph->getNodes().size(); ++i)
 	{
 		numberOfEdges += graph->getNodes().at(i)->edges.size();
-		std::cout << "Number of Edges:" << graph->getNodes().at(i)->edges.size() << std::endl;
+		//std::cout << "Number of Edges:" << graph->getNodes().at(i)->edges.size() << std::endl;
 	}
 
-	std::cout << "Totaol Number of Edges:" << numberOfEdges << std::endl;
+	std::cout << "Total Number of Edges:" << numberOfEdges << std::endl;
 }

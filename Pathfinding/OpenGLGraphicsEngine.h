@@ -1,5 +1,8 @@
 #pragma once
-#include "graphicsengine.h"
+#include "GraphicsEngine.h"
+#include <SDL.h>
+#include <SDL_opengl.h>
+#include <GL\GLU.h>
 class OpenGLGraphicsEngine :
 	public GraphicsEngine
 {
@@ -7,7 +10,8 @@ public:
 	OpenGLGraphicsEngine(unsigned screenWidth, unsigned screenHeight);
 	~OpenGLGraphicsEngine(void);
 
-	void render(const World* world, const std::vector<Agent*> agents);
+	virtual void refreshFrame();
+	void render(const Size& size, const Color& color, const Point2D& position, const float& orientation);
 
 private: 
 	SDL_Window* window;

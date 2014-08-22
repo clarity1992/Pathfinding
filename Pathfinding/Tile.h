@@ -1,11 +1,9 @@
 #pragma once
-
+#include "Constants.h"
 #include "Size.h"
 #include "Color.h"
 #include "Vertex.h"
-#include <SDL.h>
-#include "Constants.h"
-
+#include "GraphicsEngine.h"
 class Tile
 {
 public:
@@ -17,7 +15,7 @@ public:
 		return &node;
 	}
 
-	void render(SDL_Window* window) const;
+	void render(GraphicsEngine* graphicsEngine) const;
 
 private:
 	Vertex node;

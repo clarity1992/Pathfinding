@@ -44,7 +44,7 @@ Path* Pathfinder::breadthFirstSearch(Graph* graph, Vertex* source, Vertex* targe
 							int b = (distances[vertexB] + 1);
 							if ((a == b) && (std::find(terrianTypes.begin(), terrianTypes.end(), it->first->type) != terrianTypes.end()))			
 							{
-								std::cout << "(" << it->first->getPosition().x/40 << "," << it->first->getPosition().y/40 << ")" << std::endl;
+								//std::cout << "(" << it->first->getPosition().x/40 << "," << it->first->getPosition().y/40 << ")" << std::endl;
 								path.push_back(it->first);					
 							}
 						}					

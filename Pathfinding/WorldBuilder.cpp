@@ -3,6 +3,9 @@
 
 World* WorldBuilder::createWorld(std::vector<std::vector<std::string>> rawWorldData)
 {
+	cleanWorldData(rawWorldData);
+	
+	
 	std::vector<std::vector<std::string>>::iterator i;
 	std::vector<std::string>::iterator j;
 
@@ -23,4 +26,30 @@ World* WorldBuilder::createWorld(std::vector<std::vector<std::string>> rawWorldD
 		columnCount++;
 	}
 	return new World(tiles);
+}
+
+void WorldBuilder::cleanWorldData(std::vector<std::vector<std::string>>& rawWorldData)
+{
+	std::vector<std::vector<std::string>>::iterator i;
+	std::vector<std::string>::iterator j;
+
+	int maxRowLength = rawWorldData.size();
+	int maxColumnLength = 0;	
+	
+	for (i = rawWorldData.begin(); i != rawWorldData.end(); ++i)
+	{		
+		if (maxColumnLength < i->size())
+		{
+			maxColumnLength = i->size();
+		}		
+	}
+
+	for (unsigned i = 0; i < maxRowLength; ++i)
+	{		
+		while (rawWorldData.at(i).size() < maxColumnLength)
+		{
+			rawWorldData.at(i).push_back("N");
+		}		
+	}
+
 }
